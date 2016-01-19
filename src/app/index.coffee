@@ -7,6 +7,7 @@ os = require('os')
 genUtils = require('../util.js')
 meteorToAdd = [
   'add'
+  'angular-meteor-auth'
   'angular-with-blaze'
   'ejson'
   'angularui:angular-ui-router'
@@ -18,6 +19,7 @@ meteorToRemove = [
 ]
 angularModules = [
   'angular-meteor'
+  'angular-meteor.auth'
   'ui.router'
 ]
 module.exports = yeoman.generators.Base.extend(
@@ -74,7 +76,7 @@ module.exports = yeoman.generators.Base.extend(
         ]
         default: 1
         filter: (val) ->
-          filterMap = 
+          filterMap =
             'JavaScript': 'js'
             'CoffeeScript': 'coffee'
           filterMap[val]
@@ -125,7 +127,7 @@ module.exports = yeoman.generators.Base.extend(
           'Ionic'
         ]
         filter: (val) ->
-          filterMap = 
+          filterMap =
             'None': 'none'
             'Angular Material': 'material'
             'Bootstrap': 'bootstrap'
