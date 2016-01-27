@@ -8,6 +8,5 @@ angular.module '<%= appname %>'
     templateUrl: '<%= dir %>/<%=compnameSlugged%>.view.html'
     controller: '<%= compnameCapped %>Ctrl'<% if(auth && protected) { %>
     resolve:
-      currentUser: ['$meteor', ($meteor) ->
-        $meteor.requireUser()
-      ]<% } %>
+      currentUser: ($auth) ->
+        $auth.waitForUser()<% } %>

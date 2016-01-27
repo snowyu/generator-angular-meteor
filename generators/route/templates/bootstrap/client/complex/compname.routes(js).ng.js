@@ -8,9 +8,9 @@ angular.module('<%= appname %>')
     templateUrl: '<%= dir %>/<%=compnameSlugged%>-list.view<%if(!jade) {%>.ng<%}%>.html',
     controller: '<%= compnameCapped %>ListCtrl'<% if(auth && protected) { %>,
     resolve: {
-      currentUser: ['$meteor', function($meteor) {
-        return $meteor.requireUser();
-      }]
+      currentUser: function($auth) {
+        return $auth.waitForUser();
+      }
     }<% } %>
   })
   .state('<%= compnameSingular %>-detail', {
@@ -18,9 +18,9 @@ angular.module('<%= appname %>')
     templateUrl: '<%= dir %>/<%=compnameSluggedSingular%>-detail.view<%if(!jade) {%>.ng<%}%>.html',
     controller: '<%= compnameCappedSingular %>DetailCtrl'<% if(auth && protected) { %>,
     resolve: {
-      currentUser: ['$meteor', function($meteor) {
-        return $meteor.requireUser();
-      }]
+      currentUser: function($auth) {
+        return $auth.waitForUser();
+      }
     }<% } %>
   });
 });

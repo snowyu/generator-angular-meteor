@@ -15,11 +15,11 @@
 
   genUtils = require('../util.js');
 
-  meteorToAdd = ['add', 'angular-with-blaze', 'ejson', 'angularui:angular-ui-router', 'urigo:angular-blaze-template'];
+  meteorToAdd = ['add', 'angular-meteor-auth', 'angular-with-blaze', 'ejson', 'angularui:angular-ui-router', 'urigo:angular-blaze-template'];
 
   meteorToRemove = ['remove', 'ecmascript'];
 
-  angularModules = ['angular-meteor', 'ui.router'];
+  angularModules = ['angular-meteor', 'angular-meteor.auth', 'ui.router'];
 
   module.exports = yeoman.generators.Base.extend({
     init: function() {
@@ -269,7 +269,7 @@
       }
       if (this.filters.pagination) {
         meteorToAdd.push('tmeasday:publish-counts');
-        meteorToAdd.push('angularutils:pagination@=0.9.0');
+        meteorToAdd.push('angularutils:pagination@0.9.0');
         angularModules.push('angularUtils.directives.dirPagination');
       }
       if (this.filters.auth) {
